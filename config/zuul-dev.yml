@@ -1,6 +1,11 @@
 spring:
   application:
     name: zuul
+  rabbitmq:
+    host: 192.168.161.132
+    port: 5672
+    username: admin
+    password: admin
     
 server:
   port: 3001
@@ -16,11 +21,11 @@ eureka:
 #    user-service: /user-service/**
 #    order-service: /order-service/**
 
-# zuul 已经集成了 ribbon，默认已经实现了负载均衡 重试默认是关闭的
+# zuul 宸茬粡闆嗘垚浜� ribbon锛岄粯璁ゅ凡缁忓疄鐜颁簡璐熻浇鍧囪　 閲嶈瘯榛樿鏄叧闂殑
 zuul:
   retryable: true
   
-# 降低 hystrix 超时时间，以便测试降级
+# 闄嶄綆 hystrix 瓒呮椂鏃堕棿锛屼互渚挎祴璇曢檷绾�
 hystrix:
   command:
     default:
@@ -29,7 +34,7 @@ hystrix:
           thread:
             timeoutInMilliseconds: 500
             
-# 添加actuator依赖后 暴露zuul的hystrix.stream端点
+# 娣诲姞actuator渚濊禆鍚� 鏆撮湶zuul鐨刪ystrix.stream绔偣
 management:
   endpoints:
     web:
